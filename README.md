@@ -8,7 +8,7 @@ If that's you then you are in the right place. Meet Pac-Man with Elastic Stack.
 
 This project contains an implementation of the game [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) written in JavaScript.
 This game can be automatically installed in a cloud provider (AWS, Azure, or Google Cloud) so that many users can play the game simultaneously.
-As they play, events from the game will be created and stored in Elasticsearch. With this data stored in Elasticsearch the game builds a scoreboard that is computed in near real-time.
+As they play, events from the game will be created and stored in Elasticsearch.
 
 <center>
    <table>
@@ -19,7 +19,14 @@ As they play, events from the game will be created and stored in Elasticsearch. 
    </table>
 </center>
 
-AAA
+<center>
+   <table>
+      <tr>
+         <td><img src="images/scoreboard.png"></td>
+         <td>With this data stored in Elasticsearch the game continuously reads the indices and compute in near real-time a scoreboard.</td>
+      </tr>
+   </table>
+</center>
 
 ## Building the project
 
