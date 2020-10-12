@@ -13,8 +13,8 @@ As they play, events from the game will be created and stored in Elasticsearch. 
 <center>
    <table>
       <tr>
-         <td><img src="images/game-start.png" width="420" height="500"></td>
-         <td><img src="images/game-run.png" width="420" height="500"></td>
+         <td><img src="images/game-start.png" width="450" height="500"></td>
+         <td><img src="images/game-run.png" width="450" height="500"></td>
       </tr>
    </table>
 </center>
