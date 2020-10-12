@@ -1,0 +1,12 @@
+###########################################
+################ General ##################
+###########################################
+
+APP_NAME=<APP_NAME>
+DISPLAY_COUNT=10
+
+DATA_STREAM_ENABLED=false
+
+TRANSFORM_ENABLED=false
+TRANSFORM_FREQUENCY=1s
+TRANSFORM_DELAY=1s

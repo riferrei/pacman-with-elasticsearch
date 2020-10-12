@@ -1,6 +1,7 @@
 # Sensitive data
 elastic.settings
 provider.settings
+general.settings
 
 # Terraform
 terraform/aws/.terraform
