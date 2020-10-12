@@ -1,12 +1,25 @@
 # Pac-Man with Elastic Stack
 
-Many people know how awesome is the [Elastic Stack](https://www.elastic.co/elastic-stack) and how powerful each technology from the stack can be.
-However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a yet — simple to understand scenario.
+Many people know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how powerful each technology from the stack can be.
+However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
 If that's you then you are in the right place. Meet Pac-Man with Elastic Stack.
 
 <img src="images/pacman.jpg" width="900" height="400">
 
-Kafka is a distributed [commit log](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) and therefore messages are immutable and so their ordering within partitions.
+This project contains an implementation of the game [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) written in JavaScript.
+This game can be automatically installed in a cloud provider (AWS, Azure, or Google Cloud) so that many users can play the game simultaneously.
+As they play, events from the game will be created and stored in Elasticsearch. With this data stored in Elasticsearch the game builds a scoreboard that is computed in near real-time.
+
+<center>
+   <table>
+      <tr>
+         <td><img src="images/game-start.png" width="350" height="400"></td>
+         <td><img src="images/game-run.png" width="350" height="400"></td>
+      </tr>
+   </table>
+</center>
+
+AAA
 
 ## Building the project
 
