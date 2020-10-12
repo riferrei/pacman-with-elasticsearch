@@ -28,6 +28,12 @@ As they play, events from the game will be created and stored in Elasticsearch.
    </table>
 </center>
 
+In order to deploy the game you first need to create a deployment on [Elastic Cloud](https://www.elastic.co/cloud/). Elastic Cloud is required here for two reasons.
+Firstly because it allows you to focus on the application architecture without wasting time with infrastructure plumbing.
+Elastic Cloud is a managed service that takes care of the dirty details of having an Elastic Stack infrastructure that is highly available.
+Secondly, both the game and its data need to be co-located for performance reasons.
+Since the game is deployed in a cloud provider, it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is deployed.
+
 ## Building the project
 
 The first thing you need to do to start using this partitioner is building it. In order to do that, you need to install the following dependencies:
