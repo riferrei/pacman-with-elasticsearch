@@ -4,7 +4,7 @@ Many people know how awesome the [Elastic Stack](https://www.elastic.co/elastic-
 However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
 If that's you then you are in the right place. Meet Pac-Man with Elastic Stack.
 
-<img src="images/pacman.jpg" width="900" height="400">
+<img src="images/pacman.jpg" width="800" height="300">
 
 This project contains an implementation of the game [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) written in JavaScript.
 This game can be automatically installed in a cloud provider (AWS, Azure, or Google Cloud) so that many users can play the game simultaneously.
