@@ -2,7 +2,7 @@
 
 Many people know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how powerful each technology from the stack can be.
 However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
-If that's you then you are in the right place. Meet Pac-Man with Elastic Stack.
+If that's you then you are in the right place. Meet **Pac-Man with Elastic Stack**.
 
 <center><img src="images/pacman.jpg" width="800" height="350"></center>
 
