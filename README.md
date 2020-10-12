@@ -23,7 +23,7 @@ As they play, events from the game will be created and stored in Elasticsearch.
    <table>
       <tr>
          <td><img src="images/scoreboard.png"></td>
-         <td>With this data stored in Elasticsearch the game continuously reads the indices and compute in near real-time a scoreboard.</td>
+         <td>With this data stored in Elasticsearch the game continuously reads the indices and compute in near real-time a scoreboard. The scoreboard lists all the players and sorts them firstly based on their score, then based on their level, and lastly based on the number of their losses.</td>
       </tr>
    </table>
 </center>
