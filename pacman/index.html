@@ -1,0 +1,112 @@
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="apple-touch-icon" sizes="180x180" href="game/img/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="game/img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="game/img/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <title>Pac-Man with Elastic Stack</title>
+    </head>
+
+    <style>
+        input {
+            max-width: 200px;
+            border-radius: 8px;
+            padding: 0 0.5em;
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+
+        function checkName() {
+            var user = localStorage.getItem("user");
+            if (user != null && user.length > 0) {
+                document.getElementById("user").value = user;
+            }
+        }
+
+        function enter(e) {
+            if (event.which == 13 || event.keyCode == 13) {
+                play();
+            }
+        }
+
+        function play() {
+            var user = document.getElementById("user").value;
+            if (user == '') {
+                alert('You need to provide a name.');
+                return;
+            }
+            if (localStorage) {
+                localStorage.setItem("user", user);
+                localStorage.setItem("browser", self.browser());
+                localStorage.setItem("os", self.getOS());
+            }
+            window.location.href = "start.html";
+        }
+
+        function browser() {
+
+            let userAgentString = navigator.userAgent;
+
+            let chromeAgent = userAgentString.indexOf("Chrome") > -1;
+
+			let IExplorerAgent = 
+				userAgentString.indexOf("MSIE") > -1 || 
+                userAgentString.indexOf("rv:") > -1;
+            
+            let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
+
+            let safariAgent = userAgentString.indexOf("Safari") > -1;
+            if ((chromeAgent) && (safariAgent)) safariAgent = false;
+
+            let operaAgent = userAgentString.indexOf("OP") > -1;
+            if ((chromeAgent) && (operaAgent)) chromeAgent = false;
+
+            if (chromeAgent) { return "Chrome"; }
+            if (firefoxAgent) { return "Firefox"; }
+            if (safariAgent) { return "Safari"; }
+            if (operaAgent) { return "Opera"; }
+            if (IExplorerAgent) { return "Internet Explorer"; }
+            
+        }
+
+        function getOS() {
+
+            var userAgent = window.navigator.userAgent,
+            platform = window.navigator.platform,
+            macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+            windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+            iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+            os = null;
+
+            if (macosPlatforms.indexOf(platform) !== -1) {
+                os = 'Mac OS';
+            } else if (iosPlatforms.indexOf(platform) !== -1) {
+                os = 'iOS';
+            } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                os = 'Windows';
+            } else if (/Android/.test(userAgent)) {
+                os = 'Android';
+            } else if (!os && /Linux/.test(platform)) {
+                os = 'Linux';
+            }
+
+            return os;
+
+        }
+
+    </script>
+
+    <body bgcolor="black" onload="checkName()">
+        <center>
+            <img src="game/img/pac-man-logo.png" width="300" height="200" />
+            <h3 style="color:white;">Enter your Name:</h3>
+            <input type="text" id="user" value="" onkeydown="enter(event)" />
+            <input type="button" value="Play" onclick="play()" />
+        </center>
+    </body>
+
+</html>

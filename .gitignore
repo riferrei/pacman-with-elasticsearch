@@ -1,3 +1,23 @@
+# Sensitive data
+elastic.settings
+provider.settings
+
+# Terraform
+terraform/aws/.terraform
+terraform/aws/terraform.tfstate
+terraform/aws/terraform.tfstate.backup
+terraform/aws/.terraform.tfstate.lock.info
+
+terraform/azr/.terraform
+terraform/azr/terraform.tfstate
+terraform/azr/terraform.tfstate.backup
+terraform/azr/.terraform.tfstate.lock.info
+
+terraform/gcp/.terraform
+terraform/gcp/terraform.tfstate
+terraform/gcp/terraform.tfstate.backup
+terraform/gcp/.terraform.tfstate.lock.info
+
 # Compiled class file
 *.class
 

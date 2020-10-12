@@ -1,0 +1,108 @@
+{
+    "index_patterns": [
+        "${INPUT_DATA_INDEX}*"
+    ],
+    "data_stream": {},
+    "priority": 200,
+    "template": {
+        "settings": {
+            "number_of_shards": ${NUMBER_OF_SHARDS},
+            "number_of_replicas": 1,
+            "index.lifecycle.name": "${DS_POLICY_NAME}"
+        },
+        "mappings": {
+            "properties": {
+                "@timestamp": {
+                    "type": "date"
+                },
+                "game": {
+                    "properties": {
+                        "score": {
+                            "type": "long"
+                        },
+                        "level": {
+                            "type": "long"
+                        },
+                        "lives": {
+                            "type": "long"
+                        },
+                        "losses": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "location": {
+                    "properties": {
+                        "city": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "country": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "countryCode": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "state": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "runtime": {
+                    "properties": {
+                        "browser": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "os": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "user": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

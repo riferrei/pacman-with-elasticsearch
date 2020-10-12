@@ -1,0 +1,43 @@
+{
+    "source": {
+        "index": [
+            "${INPUT_DATA_INDEX}"
+        ]
+    },
+    "pivot": {
+        "group_by": {
+            "user.keyword": {
+                "terms": {
+                    "field": "user.keyword"
+                }
+            }
+        },
+        "aggregations": {
+            "game.score.max": {
+                "max": {
+                    "field": "game.score"
+                }
+            },
+            "game.level.max": {
+                "max": {
+                    "field": "game.level"
+                }
+            },
+            "game.losses.sum": {
+                "sum": {
+                    "field": "game.losses"
+                }
+            }
+        }
+    },
+    "dest": {
+        "index": "${SCOREBOARD_INDEX}"
+    },
+    "frequency": "${TRANSFORM_FREQUENCY}",
+    "sync": {
+        "time": {
+            "field": "@timestamp",
+            "delay": "${TRANSFORM_DELAY}"
+        }
+    }
+}

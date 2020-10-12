@@ -1,0 +1,12 @@
+###########################################
+################ General ##################
+###########################################
+
+APP_NAME=elastic-community
+DISPLAY_COUNT=10
+
+DATA_STREAM_ENABLED=false
+
+TRANSFORM_ENABLED=false
+TRANSFORM_FREQUENCY=1s
+TRANSFORM_DELAY=1s
