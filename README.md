@@ -39,7 +39,7 @@ Since the game is deployed in a cloud provider, it makes sense to have the gener
 ## Pre-requisites
 
 You will need a machine running Linux, Mac, or WSL to be able to deploy the game.
-Also, the following software must be installed and accessible via shell:
+Also, the following software must be installed and easily accessible:
 
 - [Terraform](https://www.terraform.io/downloads.html)
 - [jq](https://stedolan.github.io/jq)
