@@ -43,19 +43,15 @@ Also, the following software must be installed and easily accessible:
 
 <table>
   <tr border="1">
-    <td>Software</td>
-    <td>URL to Download</td>
-  </tr>
-  <tr border="1">
-    <td>Terraform</td>
+    <td><b>Terraform</b></td>
     <td><a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a></td>
   </tr>
   <tr border="1">
-    <td>jq</td>
+    <td><b>jq</b></td>
     <td><a href="https://stedolan.github.io/jq">https://stedolan.github.io/jq</a></td>
   </tr>
   <tr border="1">
-    <td>curl</td>
+    <td><b>curl</b></td>
     <td><a href="https://curl.haxx.se/download.html">https://curl.haxx.se/download.html</a></td>
   </tr>
 </table>
