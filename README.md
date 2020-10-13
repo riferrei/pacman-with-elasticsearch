@@ -42,9 +42,9 @@ The game uses Elasticsearch as its data store so you need to have a cluster for 
 For the sake of simplicity and awesomeness you should use Elastic Cloud.
 If you don't have an account with Elastic Cloud don't worry — creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime to Elastic before the trial ends.
 
-Once you have an account, log in to Elastic Cloud and create a new deployment:
+Once you have an account, log in to Elastic Cloud and follow these steps:
 
-1. Click on the `Create deployment` button from the home UI.
+1. In the main UI click on the `Create deployment` button.
 2. Select `Elastic Stack` as the pre-configured solution.
 3. Select `Memory Optimized` as the hardware profile.
 4. Under `Deployment settings` click on the `Expand` button.
