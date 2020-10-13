@@ -96,14 +96,39 @@ It is important to note that the cloud provider and region used to install the g
   ES_USERNAME=<ES_USERNAME>
   ES_PASSWORD=<ES_PASSWORD>
   ```
-
   You can copy the Elasticsearch endpoint from the Elastic Cloud UI. Just select your deployment as shown below.
 
   <img src="images/es-endpoint.png" heigth="480" width="480" />
 
 ### 2.2 Information about the cloud provider
 
-AAA
+- Create a new file called `provider.settings` based on the template `provider.settings.template`.
+  ```bash
+  cp provider.settings.template provider.settings
+  ```
+- Open the file `provider.settings` and provide the credentials details of the chosen cloud provider.
+  ```bash
+  ########## AWS ##########
+
+  AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+  AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+
+  ######### Azure #########
+
+  ARM_SUBSCRIPTION_ID=<ARM_SUBSCRIPTION_ID>
+  ARM_TENANT_ID=<ARM_TENANT_ID>
+  ARM_CLIENT_ID=<ARM_CLIENT_ID>
+  ARM_RESOURCE_GROUP=<ARM_RESOURCE_GROUP>
+
+  ###### Google Cloud #####
+
+  GOOGLE_CLOUD_KEYFILE_JSON=<GOOGLE_CLOUD_KEYFILE_JSON>
+  GOOGLE_CLOUD_PROJECT=<GOOGLE_CLOUD_PROJECT>
+
+  ```
+
+  Which credentials to set will depend on what cloud provider was used during the creation of the Elastic Cloud deployment.
+  If you are unsure about how to obtain the credentials, check the documentation from the needed cloud provider.
 
 ### 2.3 General customization of the game
 
