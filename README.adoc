@@ -53,9 +53,11 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 3. Select `Memory Optimized` as the hardware profile.
 4. Under `Deployment settings` click on the `Expand` button.
 5. Select the `Cloud provider` and `Region` where you want to store the data.
-
-     *Note*: Keep in mind that whatever you select here will also dictate where the game will be installed.
-
++
+[source]
+----
+Keep in mind that whatever you select here will also dictate where the game will be installed.
+----
 6. In the bottom of the page click on the `Customize` button.
 7. Under the data node section, click on `User settings override`.
 8. Append the following content in the `User settings override` box.
