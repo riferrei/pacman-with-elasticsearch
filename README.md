@@ -171,12 +171,12 @@ It is important to note that the cloud provider and region used to install the g
 
 ## 3. Installing and Uninstalling the Game
 
-- Use the script `install.sh` to install the game
+- Execute the script `install.sh` to install the game
   ```bash
   sh install.sh
   ```
 
-- Use the script `uninstall.sh` to uninstall the game
+- Execute the script `uninstall.sh` to uninstall the game
   ```bash
   sh uninstall.sh
   ```
