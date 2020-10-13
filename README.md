@@ -44,25 +44,25 @@ If you don't have an account with Elastic Cloud don't worry. Creating one is eas
 
 Once you have an account, log in to Elastic Cloud and create a new deployment:
 
-- 1. Click on the `Create deployment` button from the home UI.
-- 2. Select `Elastic Stack` as the pre-configured solution.
-- 3. Select `Memory Optimized` as the hardware profile.
-- 4. Under `Deployment settings` click on the `Expand` button.
-- 5. Select the `Cloud provider` and `Region` where you want to store the data.
+- 1) Click on the `Create deployment` button from the home UI.
+- 2) Select `Elastic Stack` as the pre-configured solution.
+- 3) Select `Memory Optimized` as the hardware profile.
+- 4) Under `Deployment settings` click on the `Expand` button.
+- 5) Select the `Cloud provider` and `Region` where you want to store the data.
 
      **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
 
-- 6. Select the cloud provider and region where you want to store the data.
-- 7. In the bottom of the page click on the `Customize` button.
-- 8. Under the data node section, click on `User settings override`.
-- 9. Paste the following content in the `User settings override` box.
+- 6) Select the cloud provider and region where you want to store the data.
+- 7) In the bottom of the page click on the `Customize` button.
+- 8) Under the data node section, click on `User settings override`.
+- 9) Paste the following content in the `User settings override` box.
      ```yaml
      http.cors.enabled : true
      http.cors.allow-origin : "*"
      http.cors.allow-methods : OPTIONS, HEAD, GET, POST, PUT, DELETE
      http.cors.allow-headers : "*"
      ```
-- 10. Finally click on the button `Create deployment` on the bottom of the page.
+- 10) Finally click on the button `Create deployment` on the bottom of the page.
 
 ## 2. Deploying the Game in the Cloud Provider
 
