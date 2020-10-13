@@ -75,12 +75,37 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
 ## 2. Deploying the Game in the Cloud Provider
 
 Deploying the game in the cloud provider should be really straightforward as long you provide the correct information requested.
-In this section we will talk you through in what is required to deploy the game.
+In this section we will walk you through in what is required to deploy the game.
 Generally speaking here is the information that you need to provide:
 
 - **Information about Elasticsearch**: You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
 - **Information about the cloud provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are specific to each provider but the template that comes with this project will give you a hint about what is necessary.
 - **General customization of the game**: You are going to provide this information by creating a file called `general.settings` and providing the customization.
+
+It is important to note that the cloud provider and region used to install the game will be based on the information coming from the Elastic Cloud deployment — more specifically the Elasticsearch endpoint.
+
+### 2.1 Information about Elasticsearch
+
+- Create a new file called `elastic.settings` based on the template `elastic.settings.template`.
+  ```bash
+  cp elastic.settings.template elastic.settings
+  ```
+- Open the file `elastic.settings` and provide the endpoint, username, and password of Elasticsearch.
+  ```bash
+  ES_ENDPOINT=<ES_ENDPOINT>
+  ES_USERNAME=<ES_USERNAME>
+  ES_PASSWORD=<ES_PASSWORD>
+  ```
+
+  You can copy the Elasticsearch endpoint from the Elastic Cloud UI. Just select your deployment as shown below.
+
+  <img src="images/es-endpoint.png" heigth="480" width="480" />
+
+### 2.2 Information about the cloud provider
+
+AAA
+
+### 2.3 General customization of the game
 
 AAA
 
