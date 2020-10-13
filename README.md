@@ -83,7 +83,7 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 9. Click on the button `Create deployment` on the bottom of the page.
 10. Take note of the `elastic` deployment credentials. You'll need it later.
 
-If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below shows step-by-step how it is done.
+If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below that shows step-by-step how it is done.
 
 <center>
    <a href="https://www.youtube.com/watch?v=mr-1DwMAPyQ">
