@@ -7,7 +7,7 @@ If that's you then you are in the right place. Meet **Pac-Man with Elastic Stack
 <center><img src="images/pacman.jpg" width="800" height="450"></center>
 
 This project contains an implementation of the game [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) written in JavaScript.
-This game can be automatically installed in a cloud provider (AWS, Azure, or Google Cloud) so that many users can play the game simultaneously.
+This game can be automatically installed in a cloud provider ([AWS](https://aws.amazon.com), [Azure](https://azure.microsoft.com), or [Google Cloud](https://cloud.google.com)) so that many users can play the game simultaneously.
 As they play, events from the game will be created and stored in Elasticsearch.
 
 <center>
@@ -64,9 +64,9 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 9. Click on the button `Create deployment` on the bottom of the page.
 10. Take note of the `elastic` deployment credentials. You'll need it later.
 
-If you are new to Elastic Cloud and unsure about how to follow these ten steps just follow the video below that shows how it is done step-by-step.
+If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below shows step-by-step how it is done.
 
-[![Alt text](https://img.youtube.com/vi/mIHYcxe70fc/0.jpg)](https://www.youtube.com/watch?v=mIHYcxe70fc)
+[![](https://img.youtube.com/vi/mIHYcxe70fc/0.jpg)](https://www.youtube.com/watch?v=mIHYcxe70fc)
 
 ## 2. Deploying the Game in the Cloud Provider
 
