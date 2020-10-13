@@ -30,7 +30,7 @@ As they play, events from the game will be created and stored in Elasticsearch.
 
 In order to deploy the game you first need to create a deployment on [Elastic Cloud](https://www.elastic.co/cloud/). Elastic Cloud is required here for three reasons.
 Firstly because it is where the data will be stored.
-An Elastic Cloud deployment contains a fully functional Elasticsearch cluster which is used as the data store for the events.
+An Elastic Cloud deployment contains a functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
 Elastic Cloud is a managed service that handles the dirty details of having an Elastic Stack infrastructure that is highly available.
 Finally, both the game and its data need to be co-located for performance reasons.
