@@ -56,12 +56,13 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 - 7. In the bottom of the page click on the `Customize` button.
 - 8. Under the data node section, click on `User settings override`.
 - 9. Paste the following content in the `User settings override` box.
-     @[:bash](cors.settings)
+     ```yaml
+     http.cors.enabled : true
+     http.cors.allow-origin : "*"
+     http.cors.allow-methods : OPTIONS, HEAD, GET, POST, PUT, DELETE
+     http.cors.allow-headers : "*"
+     ```
 - 10. Finally click on the button `Create deployment` on the bottom of the page.
-
-```bash
-mvn clean package
-```
 
 ## 2. Deploying the Game in the Cloud Provider
 
