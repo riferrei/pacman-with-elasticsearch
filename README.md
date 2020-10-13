@@ -1,16 +1,12 @@
-= Pac-Man with Elastic Stack
+# Pac-Man with Elastic Stack
 
-:toc:
-
-:imagesdir: images/
-
-Many people know how awesome the https://www.elastic.co/elastic-stack[Elastic Stack] is and how powerful each technology from the stack can be.
+Many people know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how powerful each technology from the stack can be.
 However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
-If that's you then you are in the right place. Meet *Pac-Man with Elastic Stack*.
+If that's you then you are in the right place. Meet **Pac-Man with Elastic Stack**.
 
-image::pacman.jpg[Gopher, 800, 450]
+<center><img src="images/pacman.jpg" width="800" height="450"></center>
 
-This project contains an implementation of the game https://en.wikipedia.org/wiki/Pac-Man[Pac-Man] written in JavaScript.
+This project contains an implementation of the game [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) written in JavaScript.
 This game can be automatically installed in a cloud provider (AWS, Azure, or Google Cloud) so that many users can play the game simultaneously.
 As they play, events from the game will be created and stored in Elasticsearch.
 
@@ -32,7 +28,7 @@ As they play, events from the game will be created and stored in Elasticsearch.
    </table>
 </center>
 
-In order to deploy the game you first need to create a deployment on https://www.elastic.co/cloud[Elastic Cloud]. Elastic Cloud is required here for three reasons.
+In order to deploy the game you first need to create a deployment on [Elastic Cloud](https://www.elastic.co/cloud/). Elastic Cloud is required here for three reasons.
 Firstly because it is where the data will be stored.
 An Elastic Cloud deployment contains a functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
@@ -44,7 +40,7 @@ Since the game is deployed in a cloud provider, it makes sense to have the gener
 
 The game uses Elasticsearch as its data store so you need to have a cluster for this.
 For the sake of simplicity and awesomeness you should use Elastic Cloud.
-If you don't have an account with Elastic Cloud don't worry — creating one is easy and it takes only a few minutes. Click https://cloud.elastic.co/registration?elektra=en-cloud-page[here] to register a new account that is going to be trial and you won't pay a dime to Elastic before the trial ends.
+If you don't have an account with Elastic Cloud don't worry. Creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime before the trial ends.
 
 Once you have an account, log in to Elastic Cloud and create a new deployment:
 
@@ -53,17 +49,23 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 3. Select `Memory Optimized` as the hardware profile.
 4. Under `Deployment settings` click on the `Expand` button.
 5. Select the `Cloud provider` and `Region` where you want to store the data.
-+
-*Note*: Keep in mind that whatever you select here will also dictate where the game will be installed.
+
+     **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
+
 6. In the bottom of the page click on the `Customize` button.
 7. Under the data node section, click on `User settings override`.
 8. Append the following content in the `User settings override` box.
-   include::cors.settings[]
+     ```yaml
+     http.cors.enabled : true
+     http.cors.allow-origin : "*"
+     http.cors.allow-methods : OPTIONS, HEAD, GET, POST, PUT, DELETE
+     http.cors.allow-headers : "*"
+     ```
 9. Click on the button `Create deployment` on the bottom of the page.
 10. Take note of the `elastic` deployment credentials. You'll need it later.
 
 ## 2. Deploying the Game in the Cloud Provider
 
-== License
+# License
 
 This project is licensed under the [Apache 2.0 License](./LICENSE).
