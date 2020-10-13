@@ -70,6 +70,16 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
 
 ## 2. Deploying the Game in the Cloud Provider
 
+Deploying the game in the cloud provider should be really straightforward as long you provide the correct information requested.
+In this section we will talk you through in what is required to deploy the game.
+Generally speaking here is the information that you need to provide:
+
+- **Information about Elasticsearch**: Since the game store is events in Elasticsearch and therefore it needs to know how to connect to the cluster. You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
+- **Information about the cloud provider**: Installing the game in the cloud provider requires having access to it as well as having the proper rights to create resources. You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters to provider are specific to each provider but the template that comes with this project will give you the hint about what is necessary.
+- **General customization of the game**: there are some knobs that you can tune to change the behavior of the game in regards to how certain things work. You are going to provide this information by creating a file called `general.settings` and providing the customization.
+
+AAA
+
 # License
 
 This project is licensed under the [Apache 2.0 License](./LICENSE).
