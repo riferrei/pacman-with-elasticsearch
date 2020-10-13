@@ -54,7 +54,7 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 
 6. In the bottom of the page click on the `Customize` button.
 7. Under the data node section, click on `User settings override`.
-8. Append the following content in the `User settings override` box.
+8. Append the following content in the `elasticsearch.yml` template.
      ```yaml
      http.cors.enabled : true
      http.cors.allow-origin : "*"
@@ -66,7 +66,11 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 
 If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below shows step-by-step how it is done.
 
-[![](https://img.youtube.com/vi/mIHYcxe70fc/0.jpg)](https://www.youtube.com/watch?v=mIHYcxe70fc)
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tTvSqvOJD10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+[![](https://img.youtube.com/vi/tTvSqvOJD10/0.jpg)](https://www.youtube.com/watch?v=tTvSqvOJD10)
 
 ## 2. Deploying the Game in the Cloud Provider
 
