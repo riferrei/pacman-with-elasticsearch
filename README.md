@@ -68,7 +68,7 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
 
 <center>
    <a href="https://www.youtube.com/watch?v=tTvSqvOJD10">
-      <img src="https://img.youtube.com/vi/tTvSqvOJD10/0.jpg" />
+      <img src="images/create-deployment.png" heigth="600" width="600" />
    </a>
 </center>
 
