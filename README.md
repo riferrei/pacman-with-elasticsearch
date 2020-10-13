@@ -56,7 +56,7 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 - 7. In the bottom of the page click on the `Customize` button.
 - 8. Under the data node section, click on `User settings override`.
 - 9. Paste the following content in the `User settings override` box.
-     
+     @[:bash](cors.settings)
 - 10. Finally click on the button `Create deployment` on the bottom of the page.
 
 ```bash
