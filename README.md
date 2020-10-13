@@ -64,6 +64,10 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 9. Click on the button `Create deployment` on the bottom of the page.
 10. Take note of the `elastic` deployment credentials. You'll need it later.
 
+If you are new to Elastic Cloud and unsure about how to follow these ten steps just follow the video below that shows how it is done step-by-step.
+
+[![Alt text](https://img.youtube.com/vi/mIHYcxe70fc/0.jpg)](https://www.youtube.com/watch?v=mIHYcxe70fc)
+
 ## 2. Deploying the Game in the Cloud Provider
 
 # License
