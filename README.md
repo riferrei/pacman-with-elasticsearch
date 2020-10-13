@@ -92,10 +92,10 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
    </a>
 </center>
 
-## 2. Preparing the Game Deployment
+## 2. Preparing the Game for Install
 
-Deploying the game in the cloud provider should be really straightforward as long you provide the correct information requested.
-In this section we will walk you through in what is required to deploy the game.
+Installing the game in the cloud provider should be really straightforward as long you provide the correct information requested.
+In this section we will walk you through in what is required to install the game.
 Generally speaking here is the information that you need to provide:
 
 - **Information about Elasticsearch**: You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
@@ -170,16 +170,16 @@ It is important to note that the cloud provider and region used to install the g
 
   You need to set at least the `APP_NAME` variable since it defines how part of the game URL will look like, as well as how some backend resources will be named.
 
-## 3. Deploying and Undeploying the Game
+## 3. Installing and Uninstalling the Game
 
-- Use the script `deploy.sh` to deploy the game
+- Use the script `install.sh` to install the game
   ```bash
-  sh deploy.sh
+  sh install.sh
   ```
 
-- Use the script `undeploy.sh` to undeploy the game
+- Use the script `uninstall.sh` to uninstall the game
   ```bash
-  sh undeploy.sh
+  sh uninstall.sh
   ```
 
 # License
