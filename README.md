@@ -50,7 +50,7 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 4. Under `Deployment settings` click on the `Expand` button.
 5. Select the `Cloud provider` and `Region` where you want to store the data.
 
-   **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
+   > Whatever you select here will dictate where the game will be installed.
 
 6. In the bottom of the page click on the `Customize` button.
 7. Under the data node section, click on `User settings override`.
@@ -67,10 +67,10 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below shows step-by-step how it is done.
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tTvSqvOJD10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <a href="https://www.youtube.com/watch?v=tTvSqvOJD10">
+      <img src="https://img.youtube.com/vi/tTvSqvOJD10/0.jpg" />
+   </a>
 </center>
-
-[![](https://img.youtube.com/vi/tTvSqvOJD10/0.jpg)](https://www.youtube.com/watch?v=tTvSqvOJD10)
 
 ## 2. Deploying the Game in the Cloud Provider
 
