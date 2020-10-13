@@ -36,33 +36,34 @@ Elastic Cloud is a managed service that handles the dirty details of having an E
 Finally, both the game and its data need to be co-located for performance reasons.
 Since the game is deployed in a cloud provider, it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is deployed.
 
-## Building the project
+## 1. Create a Deployment in Elastic Cloud
 
-The first thing you need to do to start using this partitioner is building it. In order to do that, you need to install the following dependencies:
+The game uses Elasticsearch as its data store so you need to have a cluster for this.
+For the sake of simplicity and awesomeness you should use Elastic Cloud.
+If you don't have an account with Elastic Cloud don't worry. Creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime before the trial ends.
 
-- [Java 11+](https://openjdk.java.net/)
-- [Apache Maven](https://maven.apache.org/)
+Once you have an account, log in to Elastic Cloud and create a new deployment:
 
-After installing these dependencies, execute the following command:
+- 1. Click on the `Create deployment` button from the home UI.
+- 2. Select `Elastic Stack` as the pre-configured solution.
+- 3. Select `Memory Optimized` as the hardware profile.
+- 4. Under `Deployment settings` click on the `Expand` button.
+- 5. Select the `Cloud provider` and `Region` where you want to store the data.
+
+     **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
+
+- 6. Select the cloud provider and region where you want to store the data.
+- 7. In the bottom of the page click on the `Customize` button.
+- 8. Under the data node section, click on `User settings override`.
+- 9. Paste the following content in the `User settings override` box.
+     
+- 10. Finally click on the button `Create deployment` on the bottom of the page.
 
 ```bash
 mvn clean package
 ```
 
-### What about the other topics?
-
-As you may know in Kafka a consumer can subscribe to multiple topics, allowing the same consumer to read messages from partitions belonging to different topics.
-Because of this the assignor ensures that only the topic specified in the configuration will have its partitions assigned to the consumers using the bucket priority logic.
-The other topics will have their partitions assigned to consumers using a fallback assignor.
-
-Here is an example of configuring the fallback assignor to round-robin:
-
-```bash
-configs.setProperty(BucketPriorityConfig.FALLBACK_ASSIGNOR_CONFIG,
-   "org.apache.kafka.clients.consumer.RoundRobinAssignor");
-```
-
-If you don't configure a fallback assignor explicitly, Kafka's default assignor will be used.
+## 2. Deploying the Game in the Cloud Provider
 
 # License
 
