@@ -98,7 +98,7 @@ In this section we will walk you through in what is required to install the game
 Generally speaking here is the information that you need to provide:
 
 - **Information about Elasticsearch**: You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
-- **Information about the cloud provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are specific to each provider but the template that comes with this project will give you a hint about what is necessary.
+- **Information about the cloud provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are unique to each provider but the template that comes with this project will give you a hint about what is necessary.
 - **General customization of the game**: You are going to provide this information by creating a file called `general.settings` and providing the customization.
 
 It is important to note that the cloud provider and region used to install the game will be based on the information coming from the Elastic Cloud deployment — more specifically the Elasticsearch endpoint.
