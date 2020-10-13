@@ -40,7 +40,7 @@ Since the game is deployed in a cloud provider, it makes sense to have the gener
 
 The game uses Elasticsearch as its data store so you need to have a cluster for this.
 For the sake of simplicity and awesomeness you should use Elastic Cloud.
-If you don't have an account with Elastic Cloud don't worry. Creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime before the trial ends.
+If you don't have an account with Elastic Cloud don't worry — creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime to Elastic before the trial ends.
 
 Once you have an account, log in to Elastic Cloud and create a new deployment:
 
@@ -50,7 +50,7 @@ Once you have an account, log in to Elastic Cloud and create a new deployment:
 4. Under `Deployment settings` click on the `Expand` button.
 5. Select the `Cloud provider` and `Region` where you want to store the data.
 
-     **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
+   **Note**: Keep in mind that whatever you select here will also dictate where the game will be installed.
 
 6. In the bottom of the page click on the `Customize` button.
 7. Under the data node section, click on `User settings override`.
