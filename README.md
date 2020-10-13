@@ -36,6 +36,15 @@ Elastic Cloud is a managed service that handles the dirty details of having an E
 Finally, both the game and its data need to be co-located for performance reasons.
 Since the game is deployed in a cloud provider, it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is deployed.
 
+## Pre-requisites
+
+You will need a machine running Linux, Mac, or WSL to be able to deploy the game.
+Also, the following software must be installed and accessible via shell:
+
+- [Terraform](https://www.terraform.io/downloads.html)
+- [jq](https://stedolan.github.io/jq)
+- [curl](https://curl.haxx.se/download.html)
+
 ## 1. Create a Deployment in Elastic Cloud
 
 The game uses Elasticsearch as its data store so you need to have a cluster for this.
@@ -72,7 +81,7 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
    </a>
 </center>
 
-## 2. Deploying the Game in the Cloud Provider
+## 2. Preparing the Game Deployment
 
 Deploying the game in the cloud provider should be really straightforward as long you provide the correct information requested.
 In this section we will walk you through in what is required to deploy the game.
@@ -106,7 +115,7 @@ It is important to note that the cloud provider and region used to install the g
   ```bash
   cp provider.settings.template provider.settings
   ```
-- Open the file `provider.settings` and provide the credentials details of the chosen cloud provider.
+- Open the file `provider.settings` and provide the credentials of the chosen cloud provider.
   ```bash
   ########## AWS ##########
 
@@ -132,7 +141,35 @@ It is important to note that the cloud provider and region used to install the g
 
 ### 2.3 General customization of the game
 
-AAA
+- Create a new file called `general.settings` based on the template `general.settings.template`.
+  ```bash
+  cp general.settings.template general.settings
+  ```
+- Open the file `general.settings` and change the variables to customize the game.
+  ```bash
+  APP_NAME=your-app-name-here
+  DISPLAY_COUNT=10
+
+  DATA_STREAM_ENABLED=false
+
+  TRANSFORM_ENABLED=false
+  TRANSFORM_FREQUENCY=1s
+  TRANSFORM_DELAY=1s
+  ```
+
+  You need to set at least the `APP_NAME` variable since it defines how part of the game URL will look like, as well as how some backend resources will be named.
+
+## 3. Deploying and Undeploying the Game
+
+- Use the script `deploy.sh` to deploy the game
+  ```bash
+  sh deploy.sh
+  ```
+
+- Use the script `undeploy.sh` to undeploy the game
+  ```bash
+  sh undeploy.sh
+  ```
 
 # License
 

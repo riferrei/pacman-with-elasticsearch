@@ -2,7 +2,7 @@
 ################ General ##################
 ###########################################
 
-APP_NAME=<APP_NAME>
+APP_NAME=your-app-name-here
 DISPLAY_COUNT=10
 
 DATA_STREAM_ENABLED=false
