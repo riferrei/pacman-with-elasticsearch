@@ -37,7 +37,8 @@ Finally, both the game and its data need to be co-located for performance reason
 
 ## Pre-requisites
 
-You will need a machine running Linux, Mac, or [WSL](https://docs.microsoft.com/en-us/windows/wsl/about) to run the installation.Also, the following software must be installed and easily accessible:
+You will need a machine running Linux, Mac, or [WSL](https://docs.microsoft.com/en-us/windows/wsl/about) to run the installation.
+Also, the following software must be installed:
 
 <table>
   <tr border="1">
