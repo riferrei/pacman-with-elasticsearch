@@ -190,9 +190,33 @@ The table below explains the meaning and usage of each parameter.
   </tr>
   <tr border="1">
     <td align="left">DISPLAY_COUNT</td>
-    <td align="left">Defines how many rows the scoreboard page will be shown by default. You can override this setting in the browser by using the query parameter <code>displayCount</code>.</td>
+    <td align="left">Defines how many rows the scoreboard page will display by default. You can override this setting in the browser by using the query parameter <code>displayCount</code>.</td>
     <td align="center">No</td>
     <td align="center">10</td>
+  </tr>
+  <tr border="1">
+    <td align="left">DATA_STREAM_ENABLED</td>
+    <td align="left">Enabled the usage of the feature <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html">data streams</a> for the index used to store the events from the game. If enabled it will automatically rollover and create a new backing index when the index size reaches 500MB, allowing you to implement better storage management practices by applying hot, warm, and cold policies. Turning this setting off will force the game to store all events in a single index.</td>
+    <td align="center">No</td>
+    <td align="center">true</td>
+  </tr>
+  <tr border="1">
+    <td align="left">TRANSFORM_ENABLED</td>
+    <td align="left">Enabled the usage of the feature <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/transform-apis.html#transform-apis">transforms</a> for the index used to store the scoreboard. If enabled it will automatically create and start the transform in a continuous mode. This setting enables the scoreboard to be computed in the background and asynchronously with the UI layer simply consuming the computed data. Turning this setting off will force the UI layer to request the computation of the scoreboard every time it needs.</td>
+    <td align="center">No</td>
+    <td align="center">true</td>
+  </tr>
+  <tr border="1">
+    <td align="left">TRANSFORM_FREQUENCY</td>
+    <td align="left">If the parameter <code>TRANSFORM_ENABLED</code> is set to true this parameter controls the interval between checks for changes in the index that stores the events from the game.</td>
+    <td align="center">No</td>
+    <td align="center">1s</td>
+  </tr>
+  <tr border="1">
+    <td align="left">TRANSFORM_DELAY</td>
+    <td align="left">If the parameter <code>TRANSFORM_ENABLED</code> is set to true this parameter controls the time delay between the current time and the latest input data time from the index that stores the events from the game.</td>
+    <td align="center">No</td>
+    <td align="center">1s</td>
   </tr>
 </table>
 

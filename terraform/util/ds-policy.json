@@ -4,7 +4,7 @@
             "hot": {
                 "actions": {
                     "rollover": {
-                        "max_size": "1gb"
+                        "max_size": "500mb"
                     },
                     "set_priority": {
                         "priority": 200
