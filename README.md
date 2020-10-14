@@ -93,15 +93,20 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
 
 ## 2. Preparing the Game for Install
 
-Installing the game in the cloud provider should be really straightforward as long you provide the correct information requested.
-In this section we will walk you through in what is required to install the game.
+The game was developed to be installed in the same cloud provider and region used in Elastic Cloud.
+During the installation the code will parse the Elasticsearch endpoint to retrieve which cloud provider and region must be used.
+Then, it will connect to the cloud provider and create the necessary resources to host the game — the object storage that will be configured as a website and the mandatory set of permissions to upload the game files.
+In order for this to happen you must provide the correct information necessary.
+This section will walk you through in what is required to install the game.
+
 Generally speaking here is the information that you need to provide:
 
 - **Information about Elasticsearch**: You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
 - **Information about the cloud provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are unique to each provider but the template that comes with this project will give you a hint about what is necessary.
 - **General customization of the game**: You are going to provide this information by creating a file called `general.settings` and providing the customization.
 
-It is important to note that the cloud provider and region used to install the game will be based on the information coming from the Elastic Cloud deployment — more specifically the Elasticsearch endpoint.
+The information provided here can be reused across different installations.
+Ideally you will create these settings files once and reuse them across different installations, changing only the parameters that require update for a given install.
 
 ### 2.1 Information about Elasticsearch
 
@@ -181,6 +186,6 @@ It is important to note that the cloud provider and region used to install the g
   sh uninstall.sh
   ```
 
-# License
+## License
 
 This project is licensed under the [Apache 2.0 License](./LICENSE).
