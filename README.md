@@ -85,11 +85,9 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 
 If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below that shows step-by-step how it is done.
 
-[![Everything Is AWESOME](images/create-deployment.png)](https://youtu.be/mr-1DwMAPyQ?t=5s "Testing")
-
 <center>
    <a href="https://www.youtube.com/watch?v=mr-1DwMAPyQ">
-      <img src="images/create-deployment.png" heigth="600" width="600" />
+      <img src="images/create-deployment.png" />
    </a>
 </center>
 
