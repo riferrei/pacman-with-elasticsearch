@@ -165,9 +165,9 @@ Ideally you will create these settings files once and reuse them across differen
   APP_NAME=app-name
   DISPLAY_COUNT=10
 
-  DATA_STREAM_ENABLED=false
+  DATA_STREAM_ENABLED=true
 
-  TRANSFORM_ENABLED=false
+  TRANSFORM_ENABLED=true
   TRANSFORM_FREQUENCY=1s
   TRANSFORM_DELAY=1s
   ```
