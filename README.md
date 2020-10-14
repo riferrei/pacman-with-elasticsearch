@@ -116,9 +116,9 @@ Ideally you will create these settings files once and reuse them across differen
   ```
 - Open the file `elastic.settings` and provide the endpoint, username, and password of Elasticsearch.
   ```bash
-  ES_ENDPOINT=<ES_ENDPOINT>
-  ES_USERNAME=<ES_USERNAME>
-  ES_PASSWORD=<ES_PASSWORD>
+  ES_ENDPOINT=${ES_ENDPOINT}
+  ES_USERNAME=${ES_USERNAME}
+  ES_PASSWORD=${ES_PASSWORD}
   ```
   You can copy the Elasticsearch endpoint from the Elastic Cloud UI. Just select your deployment as shown below.
 
@@ -134,20 +134,20 @@ Ideally you will create these settings files once and reuse them across differen
   ```bash
   ########## AWS ##########
 
-  AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
-  AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+  AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 
   ######### Azure #########
 
-  ARM_SUBSCRIPTION_ID=<ARM_SUBSCRIPTION_ID>
-  ARM_TENANT_ID=<ARM_TENANT_ID>
-  ARM_CLIENT_ID=<ARM_CLIENT_ID>
-  ARM_RESOURCE_GROUP=<ARM_RESOURCE_GROUP>
+  ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
+  ARM_TENANT_ID=${ARM_TENANT_ID}
+  ARM_CLIENT_ID=${ARM_CLIENT_ID}
+  ARM_RESOURCE_GROUP=${ARM_RESOURCE_GROUP}
 
   ###### Google Cloud #####
 
-  GOOGLE_CLOUD_KEYFILE_JSON=<GOOGLE_CLOUD_KEYFILE_JSON>
-  GOOGLE_CLOUD_PROJECT=<GOOGLE_CLOUD_PROJECT>
+  GOOGLE_CLOUD_KEYFILE_JSON=${GOOGLE_CLOUD_KEYFILE_JSON}
+  GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT}
 
   ```
 
