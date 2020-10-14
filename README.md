@@ -190,7 +190,7 @@ The table below explains the meaning and usage of each parameter.
   </tr>
   <tr border="1">
     <td align="left">DISPLAY_COUNT</td>
-    <td align="left">Defines how many rows the scoreboard page will be shown by default. You can override this setting in the browser by using the query parameter `displayCount`.</td>
+    <td align="left">Defines how many rows the scoreboard page will be shown by default. You can override this setting in the browser by using the query parameter <mark>displayCount</mark>.</td>
     <td align="center">No</td>
     <td align="center">10</td>
   </tr>
