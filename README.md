@@ -162,7 +162,7 @@ Ideally you will create these settings files once and reuse them across differen
   ```
 - Open the file `general.settings` and change the variables to customize the game.
   ```bash
-  APP_NAME=your-app-name-here
+  APP_NAME=app-name
   DISPLAY_COUNT=10
 
   DATA_STREAM_ENABLED=false
@@ -186,7 +186,7 @@ The table below explains the meaning and usage of each parameter.
     <td align="left">APP_NAME</td>
     <td align="left">Allows you to customize the game URL and how some backend resources will be named.</td>
     <td align="center">Yes</td>
-    <td align="center">your-app-name-here</td>
+    <td align="center">app-name</td>
   </tr>
   <tr border="1">
     <td align="left">DISPLAY_COUNT</td>
