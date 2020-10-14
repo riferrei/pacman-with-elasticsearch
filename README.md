@@ -172,7 +172,29 @@ Ideally you will create these settings files once and reuse them across differen
   TRANSFORM_DELAY=1s
   ```
 
-  You need to set at least the `APP_NAME` variable since it defines how part of the game URL will look like, as well as how some backend resources will be named.
+You should customize at least the `APP_NAME` variable since it defines the final game URL will look like, as well as how some backend resources will be named.
+The table below explains the meaning and usage of each parameter.
+
+<table>
+  <tr border="1">
+    <td align="left"><b>Parameter</b></td>
+    <td align="left"><b>Description</b></td>
+    <td align="center"><b>Mandatory</b></td>
+    <td align="center"><b>Default Value</b></td>
+  </tr>
+  <tr border="1">
+    <td align="left">APP_NAME</td>
+    <td align="left">Allows you to customize the game URL and how some backend resources will be named.</td>
+    <td align="center">Yes</td>
+    <td align="center">your-app-name-here</td>
+  </tr>
+  <tr border="1">
+    <td align="left">DISPLAY_COUNT</td>
+    <td align="left">Defines how many rows the scoreboard page will be shown by default. You can override this setting in the browser by using the query parameter `displayCount`.</td>
+    <td align="center">No</td>
+    <td align="center">10</td>
+  </tr>
+</table>
 
 ## 3. Installing and Uninstalling the Game
 
@@ -186,6 +208,6 @@ Ideally you will create these settings files once and reuse them across differen
   sh uninstall.sh
   ```
 
-## License
+# License
 
 This project is licensed under the [Apache 2.0 License](./LICENSE).
