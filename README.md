@@ -172,7 +172,7 @@ Ideally you will create these settings files once and reuse them across differen
   TRANSFORM_DELAY=1s
   ```
 
-You should customize at least the `APP_NAME` variable since it defines the final game URL will look like, as well as how some backend resources will be named.
+You should customize at least the `APP_NAME` variable since it defines how part of the game URL will look like, as well as how some backend resources will be named.
 The table below explains the meaning and usage of each parameter.
 
 <table>
@@ -184,7 +184,7 @@ The table below explains the meaning and usage of each parameter.
   </tr>
   <tr border="1">
     <td align="left">APP_NAME</td>
-    <td align="left">Allows you to customize the game URL and how some backend resources will be named.</td>
+    <td align="left">Allows you to customize part of the game URL and how some backend resources will be named.</td>
     <td align="center">Yes</td>
     <td align="center">app-name</td>
   </tr>
