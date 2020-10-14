@@ -93,7 +93,7 @@ resource "null_resource" "index" {
   provisioner "local-exec" {
     command = "sh index-mgmt.sh"
     interpreter = ["bash", "-c"]
-    working_dir = "../util"
+    working_dir = "../../scripts"
     environment = {
       ES_ENDPOINT = var.es_endpoint
       ES_USERNAME = var.es_username

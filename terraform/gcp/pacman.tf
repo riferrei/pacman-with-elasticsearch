@@ -26,7 +26,7 @@ resource "google_storage_bucket_object" "index" {
   bucket = google_storage_bucket.pacman.name
   name = "index.html"
   content_type = "text/html"
-  source = "../../pacman/index.html"
+  source = "../../content/index.html"
 }
 
 resource "google_storage_object_acl" "index" {
@@ -39,7 +39,7 @@ resource "google_storage_bucket_object" "error" {
   bucket = google_storage_bucket.pacman.name
   name = "error.html"
   content_type = "text/html"
-  source = "../../pacman/error.html"
+  source = "../../content/error.html"
 }
 
 resource "google_storage_object_acl" "error" {
@@ -52,7 +52,7 @@ resource "google_storage_bucket_object" "scoreboard" {
   bucket = google_storage_bucket.pacman.name
   name = "scoreboard.html"
   content_type = "text/html"
-  source = "../../pacman/scoreboard.html"
+  source = "../../content/scoreboard.html"
 }
 
 resource "google_storage_object_acl" "scoreboard" {
@@ -65,7 +65,7 @@ resource "google_storage_bucket_object" "site" {
   bucket = google_storage_bucket.pacman.name
   name = "site.webmanifest"
   content_type = "application/manifest+json"
-  source = "../../pacman/site.webmanifest"
+  source = "../../content/site.webmanifest"
 }
 
 resource "google_storage_object_acl" "site" {
@@ -78,7 +78,7 @@ resource "google_storage_bucket_object" "start" {
   bucket = google_storage_bucket.pacman.name
   name = "start.html"
   content_type = "text/html"
-  source = "../../pacman/start.html"
+  source = "../../content/start.html"
 }
 
 resource "google_storage_object_acl" "start" {
@@ -92,9 +92,9 @@ resource "google_storage_object_acl" "start" {
 ###########################################
 
 resource "google_storage_bucket_object" "css_files" {
-  for_each = fileset(path.module, "../../pacman/game/css/*.*")
+  for_each = fileset(path.module, "../../content/game/css/*.*")
   bucket = google_storage_bucket.pacman.name
-  name = replace(each.key, "../../pacman/", "")
+  name = replace(each.key, "../../content/", "")
   content_type = "text/css"
   source = each.value
 }
@@ -111,9 +111,9 @@ resource "google_storage_object_acl" "css_files" {
 ###########################################
 
 resource "google_storage_bucket_object" "img_files" {
-  for_each = fileset(path.module, "../../pacman/game/img/*.*")
+  for_each = fileset(path.module, "../../content/game/img/*.*")
   bucket = google_storage_bucket.pacman.name
-  name = replace(each.key, "../../pacman/", "")
+  name = replace(each.key, "../../content/", "")
   content_type = "images/png"
   source = each.value
 }
@@ -130,17 +130,17 @@ resource "google_storage_object_acl" "img_files" {
 ###########################################
 
 locals {
-  js_files_raw = fileset(path.module, "../../pacman/game/js/*.*")
+  js_files_raw = fileset(path.module, "../../content/game/js/*.*")
   js_files_mod = toset([
     for jsFile in local.js_files_raw:
-      jsFile if jsFile != "../../pacman/game/js/shared.js"
+      jsFile if jsFile != "../../content/game/js/shared.js"
   ])
 }
 
 resource "google_storage_bucket_object" "js_files" {
   for_each = local.js_files_mod
   bucket = google_storage_bucket.pacman.name
-  name = replace(each.key, "../../pacman/", "")
+  name = replace(each.key, "../../content/", "")
   content_type = "text/javascript"
   source = each.value
 }
@@ -153,7 +153,7 @@ resource "google_storage_object_acl" "js_files" {
 }
 
 data "template_file" "apikey" {
-  template = file("../util/apikey.json")
+  template = file("../../scripts/apikey.json")
   vars = {
     "input_data_index" = data.template_file.input_data_index.rendered
     "scoreboard_index" = data.template_file.scoreboard_index.rendered
@@ -167,11 +167,11 @@ data "external" "apikey" {
     es_password = var.es_password
     api_key_body = data.template_file.apikey.rendered
   }
-  program = ["sh", "../util/apikey.sh" ]
+  program = ["sh", "../../scripts/apikey.sh" ]
 }
 
 data "template_file" "shared_js" {
-  template = file("../../pacman/game/js/shared.js")
+  template = file("../../content/game/js/shared.js")
   vars = {
     es_endpoint = var.es_endpoint
     authorization = "ApiKey ${base64encode(join(":", [data.external.apikey.result.apiID, data.external.apikey.result.apiKey]))}"
@@ -201,9 +201,9 @@ resource "google_storage_object_acl" "shared_js" {
 ###########################################
 
 resource "google_storage_bucket_object" "snd_files" {
-  for_each = fileset(path.module, "../../pacman/game/sound/*.*")
+  for_each = fileset(path.module, "../../content/game/sound/*.*")
   bucket = google_storage_bucket.pacman.name
-  name = replace(each.key, "../../pacman/", "")
+  name = replace(each.key, "../../content/", "")
   content_type = "audio/mpeg"
   source = each.value
 }

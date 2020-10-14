@@ -26,7 +26,7 @@ resource "azurerm_storage_blob" "index" {
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   type = "Block"
-  source = "../../pacman/index.html"
+  source = "../../content/index.html"
 }
 
 resource "azurerm_storage_blob" "error" {
@@ -35,7 +35,7 @@ resource "azurerm_storage_blob" "error" {
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   type = "Block"
-  source = "../../pacman/error.html"
+  source = "../../content/error.html"
 }
 
 resource "azurerm_storage_blob" "site" {
@@ -44,7 +44,7 @@ resource "azurerm_storage_blob" "site" {
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   type = "Block"
-  source = "../../pacman/site.webmanifest"
+  source = "../../content/site.webmanifest"
 }
 
 resource "azurerm_storage_blob" "start" {
@@ -53,7 +53,7 @@ resource "azurerm_storage_blob" "start" {
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   type = "Block"
-  source = "../../pacman/start.html"
+  source = "../../content/start.html"
 }
 
 resource "azurerm_storage_blob" "scoreboard" {
@@ -62,7 +62,7 @@ resource "azurerm_storage_blob" "scoreboard" {
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   type = "Block"
-  source = "../../pacman/scoreboard.html"
+  source = "../../content/scoreboard.html"
 }
 
 ###########################################
@@ -70,8 +70,8 @@ resource "azurerm_storage_blob" "scoreboard" {
 ###########################################
 
 resource "azurerm_storage_blob" "css_files" {
-  for_each = fileset(path.module, "../../pacman/game/css/*.*")
-  name = replace(each.key, "../../pacman/", "")
+  for_each = fileset(path.module, "../../content/game/css/*.*")
+  name = replace(each.key, "../../content/", "")
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   content_type = "text/css"
@@ -84,8 +84,8 @@ resource "azurerm_storage_blob" "css_files" {
 ###########################################
 
 resource "azurerm_storage_blob" "img_files" {
-  for_each = fileset(path.module, "../../pacman/game/img/*.*")
-  name = replace(each.key, "../../pacman/", "")
+  for_each = fileset(path.module, "../../content/game/img/*.*")
+  name = replace(each.key, "../../content/", "")
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   content_type = "images/png"
@@ -98,16 +98,16 @@ resource "azurerm_storage_blob" "img_files" {
 ###########################################
 
 locals {
-  js_files_raw = fileset(path.module, "../../pacman/game/js/*.*")
+  js_files_raw = fileset(path.module, "../../content/game/js/*.*")
   js_files_mod = toset([
     for jsFile in local.js_files_raw:
-      jsFile if jsFile != "../../pacman/game/js/shared.js"
+      jsFile if jsFile != "../../content/game/js/shared.js"
   ])
 }
 
 resource "azurerm_storage_blob" "js_files" {
   for_each = local.js_files_mod
-  name = replace(each.key, "../../pacman/", "")
+  name = replace(each.key, "../../content/", "")
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   content_type = "text/javascript"
@@ -116,7 +116,7 @@ resource "azurerm_storage_blob" "js_files" {
 }
 
 data "template_file" "apikey" {
-  template = file("../util/apikey.json")
+  template = file("../../scripts/apikey.json")
   vars = {
     "input_data_index" = data.template_file.input_data_index.rendered
     "scoreboard_index" = data.template_file.scoreboard_index.rendered
@@ -130,11 +130,11 @@ data "external" "apikey" {
     es_password = var.es_password
     api_key_body = data.template_file.apikey.rendered
   }
-  program = ["sh", "../util/apikey.sh" ]
+  program = ["sh", "../../scripts/apikey.sh" ]
 }
 
 data "template_file" "shared_js" {
-  template = file("../../pacman/game/js/shared.js")
+  template = file("../../content/game/js/shared.js")
   vars = {
     es_endpoint = var.es_endpoint
     authorization = "ApiKey ${base64encode(join(":", [data.external.apikey.result.apiID, data.external.apikey.result.apiKey]))}"
@@ -159,8 +159,8 @@ resource "azurerm_storage_blob" "shared_js" {
 ###########################################
 
 resource "azurerm_storage_blob" "snd_files" {
-  for_each = fileset(path.module, "../../pacman/game/sound/*.*")
-  name = replace(each.key, "../../pacman/", "")
+  for_each = fileset(path.module, "../../content/game/sound/*.*")
+  name = replace(each.key, "../../content/", "")
   storage_account_name = azurerm_storage_account.pacman.name
   storage_container_name = "$web"
   content_type = "audio/mpeg"
