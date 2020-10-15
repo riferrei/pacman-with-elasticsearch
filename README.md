@@ -1,6 +1,6 @@
 # Pac-Man with Elastic Stack
 
-Many people already know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how it enables *speed*, *scale*, and *relevance* for data.
+Many people already know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how it enables ***speed***, ***scale***, and ***relevance*** for data.
 However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
 If that's you then you are in the right place. Meet **Pac-Man with Elastic Stack**.
 
