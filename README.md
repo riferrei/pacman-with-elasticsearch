@@ -28,11 +28,11 @@ As they play, events from the game will be created and stored in Elasticsearch.
    </table>
 </center>
 
-In order to install the game you first need to create a deployment on [Elastic Cloud](https://www.elastic.co/cloud/). Elastic Cloud is required here for three reasons.
+In order to install the game you first need to create a deployment on [Elasticsearch Service](https://www.elastic.co/elasticsearch/service). This is required for three reasons.
 Firstly because it is where the data will be stored.
-An Elastic Cloud deployment contains a functional Elasticsearch cluster which is used as the data store for the events.
+An deployment on Elasticsearch Service contains a functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
-Elastic Cloud is a managed service that handles the dirty details of having an Elastic Stack infrastructure that is highly available.
+Elasticsearch Service is a managed service that handles the dirty details of having an Elastic Stack infrastructure that is highly available.
 Finally, both the game and its data need to be co-located for performance reasons since it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is installed.
 
 ## Pre-requisites
@@ -55,13 +55,13 @@ Also, the following software must be installed:
   </tr>
 </table>
 
-## 1. Create a Deployment in Elastic Cloud
+## 1. Create a Deployment on Elasticsearch Service
 
 The game uses Elasticsearch as its data store so you need to have a cluster for this.
-For the sake of simplicity and awesomeness you should use Elastic Cloud.
-If you don't have an account with Elastic Cloud don't worry — creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime 💰 to Elastic before the trial ends.
+For the sake of simplicity and awesomeness you should use the Elasticsearch Service.
+If you don't have an account yet don't worry — creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime 💰 to Elastic before the trial ends.
 
-Once you have an account, log in to Elastic Cloud and follow these steps:
+Once you have an account, log in and follow these steps:
 
 1. In the main UI click on the `Create deployment` button.
 2. Select `Elastic Stack` as the pre-configured solution.
@@ -83,7 +83,7 @@ Once you have an account, log in to Elastic Cloud and follow these steps:
 9. Click on the button `Create deployment` on the bottom of the page.
 10. Take note of the `elastic` deployment credentials. You'll need it later.
 
-If you are new to Elastic Cloud and unsure about how to follow these steps don't worry. Follow the video 🎥 below that shows step-by-step how it is done.
+If you are new to the Elasticsearch Service and unsure about how to follow these steps don't worry. Follow the video 🎥 below that shows step-by-step how it is done.
 
 <center>
    <a href="https://www.youtube.com/watch?v=mr-1DwMAPyQ">
@@ -93,7 +93,7 @@ If you are new to Elastic Cloud and unsure about how to follow these steps don't
 
 ## 2. Preparing the Game for Install
 
-The game was developed to be installed in the same cloud provider and region used in Elastic Cloud.
+The game was developed to be installed in the same cloud provider and region used in the Elasticsearch Service.
 During the installation the code will parse the Elasticsearch endpoint to retrieve which cloud provider and region must be used.
 Then, it will connect to the cloud provider and create the necessary resources to host the game — the object storage that will be configured as a website and the mandatory set of permissions to upload the game files.
 In order for this to happen you must provide the correct information necessary.
@@ -151,7 +151,7 @@ Ideally you will create these settings files once and reuse them across differen
 
   ```
 
-  Which credentials to set will depend on what cloud provider was used during the creation of the Elastic Cloud deployment.
+  Which credentials to set will depend on what cloud provider was used during the creation of the deployment on Elasticsearch Service.
   If you are unsure about how to obtain the credentials, check the documentation from the needed cloud provider.
 
 ### 2.3 General customization of the game
