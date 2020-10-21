@@ -55,7 +55,7 @@ Also, the following software must be installed:
   </tr>
 </table>
 
-## 1. Create a Deployment on Elasticsearch Service
+## 1. Create a Deployment with Elasticsearch
 
 The game uses Elasticsearch as its data store so you need to have a cluster for this.
 For the sake of simplicity and awesomeness you should use the Elasticsearch Service.
