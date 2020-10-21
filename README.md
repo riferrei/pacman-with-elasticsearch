@@ -30,7 +30,7 @@ As they play, events from the game will be created and stored in Elasticsearch.
 
 In order to install the game you first need to create a deployment on [Elasticsearch Service](https://www.elastic.co/elasticsearch/service). This is required for three reasons.
 Firstly because it is where the data will be stored.
-An deployment on Elasticsearch Service contains a functional Elasticsearch cluster which is used as the data store for the events.
+A deployment on Elasticsearch Service contains a fully functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
 Elasticsearch Service is a managed service that handles the dirty details of having an Elastic Stack infrastructure that is highly available.
 Finally, both the game and its data need to be co-located for performance reasons since it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is installed.
