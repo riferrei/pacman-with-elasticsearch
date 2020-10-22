@@ -11,6 +11,19 @@ number_of_data_nodes=$(curl -s -X GET -u "$ES_USERNAME:$ES_PASSWORD" \
 
 if [ "$DATA_STREAM_ENABLED" == true ]; then
 
+   ### Delete the index if it already exist
+
+   index_status=$(curl -o /dev/null -w "%{http_code}\n" \
+      -s -X HEAD -u "$ES_USERNAME:$ES_PASSWORD" \
+      ${ES_ENDPOINT}/${INPUT_DATA_INDEX})
+
+   if [ "$index_status" == 200 ]; then
+
+      curl -s -X DELETE -u "$ES_USERNAME:$ES_PASSWORD" -H "Content-Type:application/json" \
+         "${ES_ENDPOINT}/${INPUT_DATA_INDEX}"
+
+   fi
+
    ### Create the policy if it doesn't exist
 
    ds_policy_name="${INPUT_DATA_INDEX}-policy"
@@ -55,8 +68,9 @@ else
 
    ### Create the index if it doesn't exist
 
-   index_status=$(curl -s -X GET -u "$ES_USERNAME:$ES_PASSWORD" \
-      ${ES_ENDPOINT}/${INPUT_DATA_INDEX} | jq '.status')
+   index_status=$(curl -o /dev/null -w "%{http_code}\n" \
+      -s -X HEAD -u "$ES_USERNAME:$ES_PASSWORD" \
+      ${ES_ENDPOINT}/${INPUT_DATA_INDEX})
 
    if [ "$index_status" == 404 ]; then
 
