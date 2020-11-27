@@ -1,8 +1,8 @@
-# Pac-Man with Elastic Stack
+# Pac-Man with Elasticsearch
 
-Many people already know how awesome the [Elastic Stack](https://www.elastic.co/elastic-stack) is and how it enables ***speed***, ***scale***, and ***relevance*** for data.
-However, most users struggle to find an end-to-end example based on time series data that makes usage of important features of the stack in a simple to understand scenario.
-If that's you then you are in the right place. Meet **Pac-Man with Elastic Stack**.
+Many people already know how awesome [Elasticsearch](https://www.elastic.co/elasticsearch) is and how it enables ***speed***, ***scale***, and ***relevance*** for data.
+However, it is hard to find examples that explore how Elasticsearch work with time series data in a form of data streams, as well as how it enables the computation of those data streams in near real-time.
+If that's you then you are in the right place. Meet **Pac-Man with Elasticsearch**.
 
 <center><img src="images/pacman.jpg" width="800" height="450"></center>
 
