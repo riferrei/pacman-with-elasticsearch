@@ -4,12 +4,48 @@
             "hot": {
                 "actions": {
                     "rollover": {
-                        "max_size": "500mb"
+                        "max_size": "1gb",
+                        "max_age": "7d"
                     },
                     "set_priority": {
-                        "priority": 200
+                        "priority": 50
                     }
                 }
+            },
+            "warm": {
+                "min_age": "30d",
+                "actions": {
+                    "allocate": {
+                        "require": {
+                            "data": "warm"
+                        },
+                        "number_of_replicas": 1
+                    },
+                    "shrink": {
+                        "number_of_shards": 1
+                    },
+                    "set_priority": {
+                        "priority": 25
+                    }
+                }
+            },
+            "cold": {
+                "min_age": "90d",
+                "actions": {
+                    "allocate": {
+                        "require": {
+                            "data": "cold"
+                        }
+                    },
+                    "freeze": {},
+                    "set_priority": {
+                        "priority": 0
+                    }
+                }
+            },
+            "delete": {
+                "min_age": "365d",
+                "actions": {}
             }
         }
     }
