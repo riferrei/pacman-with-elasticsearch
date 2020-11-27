@@ -196,7 +196,7 @@ The table below explains the meaning and usage of each parameter.
   </tr>
   <tr border="1">
     <td align="left">DATA_STREAM_ENABLED</td>
-    <td align="left">Enabled the usage of the feature <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html">data streams</a> for the index used to store the events from the game. If enabled it will automatically rollover and create a new backing index when the index size reaches 500MB, allowing you to implement better storage management practices by applying hot, warm, and cold policies. Turning this setting off will force the game to store all events in a single index.</td>
+    <td align="left">Enabled the usage of the feature <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html">data streams</a> for the index used to store the events from the game. If enabled it will automatically rollover when the index size reaches 1GB or if it is active for over a week, allowing you to implement better storage management practices by applying hot, warm, cold, and delete policies. Turning this setting off will force the game to store all events in a single index.</td>
     <td align="center">No</td>
     <td align="center">true</td>
   </tr>
