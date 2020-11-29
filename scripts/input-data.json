@@ -25,6 +25,9 @@
                 }
             },
             "location": {
+                "type": "geo_point"
+            },
+            "locationDetails": {
                 "properties": {
                     "city": {
                         "type": "text",

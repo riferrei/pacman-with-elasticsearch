@@ -5,6 +5,8 @@ var COUNTRY = "";
 var COUNTRY_CODE = "";
 var STATE = "";
 var CITY = "";
+var LATITUDE = 0.0;
+var LONGITUDE = 0.0;
 
 var KEYDOWN = false;
 var PAUSE = false;
@@ -60,6 +62,8 @@ function initGame(newGame) {
 				COUNTRY_CODE = result.countryCode;
 				STATE = result.region;
 				CITY = result.city;
+				LATITUDE = result.lat;
+				LONGITUDE = result.lon;
 			 }
 		   }
 	   }
@@ -474,6 +478,10 @@ function newEventData(losses) {
 			os: OS
 		},
 		location: {
+			lat: LATITUDE,
+			lon: LONGITUDE
+		},
+		locationDetails: {
 			country: COUNTRY,
 			countryCode: COUNTRY_CODE,
 			state: STATE,
