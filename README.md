@@ -34,7 +34,7 @@ Firstly because it is where the data will be stored.
 A deployment on Elasticsearch Service contains a fully functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
 Elasticsearch Service is a managed service that handles the dirty details of having an Elastic Stack infrastructure that is highly available.
-Finally, both the game and its data need to be co-located for performance reasons since it makes sense to have the generated data stored in the same cloud provider and in the same region that the game is installed.
+Finally, both the game and its data need to be co-located for performance reasons since it makes sense to have the generated data stored in the same provider and in the same region that the game is installed.
 
 ## Pre-requisites
 
@@ -71,7 +71,7 @@ Generally speaking here is the information that you need to provide:
 The information provided here can be reused across different installations.
 Ideally you will create these settings files once and reuse them across different installations, changing only the parameters that require update for a given install.
 
-### 1.1 Information about Elasticsearch
+### 1.1 Information about Elastic Cloud
 
 - Create a new file called `elastic.settings` based on the template `elastic.settings.template`.
   ```bash
@@ -85,7 +85,7 @@ Ideally you will create these settings files once and reuse them across differen
   
   <img src="images/new-api-key.png" heigth="580" width="580" />
 
-### 1.2 Information about the cloud provider
+### 1.2 Information about the provider
 
 - Create a new file called `provider.settings` based on the template `provider.settings.template`.
   ```bash
