@@ -23,7 +23,7 @@ As they play, events from the game will be created and stored in Elasticsearch.
    <table>
       <tr>
          <td width="500" height="200"><img src="images/scoreboard.png"></td>
-         <td width="500">With all this data stored in Elasticsearch the game continuously reads the indices and computes in near real-time a scoreboard. The scoreboard lists all the available players and sorts them firstly based on their score, then based on their level, and lastly based on the number of their losses. The scoreboard is built based on features like <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">searches</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">aggregations</a>, and advanced features such as <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/transform-apis.html#transform-apis">transforms</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html">data streams</a> can also be optionally enabled.</td>
+         <td width="500">With all this data stored in Elasticsearch the game continuously reads the indices and computes in near real-time a scoreboard. The scoreboard lists all the available players and sorts them firstly based on their score, then based on their level, and lastly based on the number of their losses. The scoreboard is built based on features like <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">searches</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">aggregations</a>, and advanced features such as <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/transform-apis.html#transform-apis">transforms</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html">data streams</a> are also enabled.</td>
       </tr>
    </table>
 </center>
@@ -58,8 +58,8 @@ Also, the following software must be installed:
 
 ## 1. Preparing the Game for Install
 
-The game was developed to automatically create a deployment in Elasticsearch Service, automatically deploy the application in the cloud provider, and glue them together for a superior user experience.
-This means that there are not much expected from you except for providing the credentials so all of this can happen.
+The game was developed to automatically create a deployment in Elasticsearch Service, to automatically deploy the application in the provider, and glue them together for a superior user experience.
+This means that there is not much expected from you except for providing the required credentials to make all of this happen.
 This section will walk you through in what is required to install the game.
 
 Generally speaking here is the information that you need to provide:
