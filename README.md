@@ -28,7 +28,8 @@ As they play, events from the game will be created and stored in Elasticsearch.
    </table>
 </center>
 
-In order to install the game you first need to create a deployment on [Elasticsearch Service](https://www.elastic.co/elasticsearch/service). This is required for three reasons.
+During the installation of the game a new deployment is created on [Elasticsearch Service](https://www.elastic.co/elasticsearch/service).
+This is required for three reasons.
 Firstly because it is where the data will be stored.
 A deployment on Elasticsearch Service contains a fully functional Elasticsearch cluster which is used as the data store for the events.
 Secondly because it allows you to focus on the application code without wasting time with infrastructure plumbing.
@@ -55,82 +56,48 @@ Also, the following software must be installed:
   </tr>
 </table>
 
-## 1. Create a Deployment with Elasticsearch
+## 1. Preparing the Game for Install
 
-The game uses Elasticsearch as its data store so you need to have a cluster for this.
-For the sake of simplicity and awesomeness you should use the Elasticsearch Service.
-If you don't have an account yet don't worry — creating one is easy and it takes only a few minutes. Click [here](https://cloud.elastic.co/registration?elektra=en-cloud-page) to register a new account that is going to be trial and you won't pay a dime 💰 to Elastic before the trial ends.
-
-Once you have an account, log in and follow these steps:
-
-1. In the main UI click on the `Create deployment` button.
-2. Select `Elastic Stack` as the pre-configured solution.
-3. Select `Memory Optimized` as the hardware profile.
-4. Under `Deployment settings` click on the `Expand` button.
-5. Select the `Cloud provider` and `Region` where you want to store the data.
-
-   > Whatever you select here will dictate where the game will be installed.
-
-6. In the bottom of the page click on the `Customize` button.
-7. Under the data node section, click on `User settings override`.
-8. Append the following content in the `elasticsearch.yml` template.
-     ```yaml
-     http.cors.enabled : true
-     http.cors.allow-origin : "*"
-     http.cors.allow-methods : OPTIONS, HEAD, GET, POST, PUT, DELETE
-     http.cors.allow-headers : "*"
-     ```
-9. Click on the button `Create deployment` on the bottom of the page.
-10. Take note of the `elastic` deployment credentials. You'll need it later.
-
-If you are new to the Elasticsearch Service and unsure about how to follow these steps don't worry. Follow the video 🎥 below that shows step-by-step how it is done.
-
-<center>
-   <a href="https://www.youtube.com/watch?v=mr-1DwMAPyQ">
-      <img src="images/create-deployment.png" />
-   </a>
-</center>
-
-## 2. Preparing the Game for Install
-
-The game was developed to be installed in the same cloud provider and region used in the Elasticsearch Service.
-During the installation the code will parse the Elasticsearch endpoint to retrieve which cloud provider and region must be used.
-Then, it will connect to the cloud provider and create the necessary resources to host the game — the object storage that will be configured as a website and the mandatory set of permissions to upload the game files.
-In order for this to happen you must provide the correct information necessary.
+The game was developed to automatically create a deployment in Elasticsearch Service, automatically deploy the application in the cloud provider, and glue them together for a superior user experience.
+This means that there are not much expected from you except for providing the credentials so all of this can happen.
 This section will walk you through in what is required to install the game.
 
 Generally speaking here is the information that you need to provide:
 
-- **Information about Elasticsearch**: You are going to provide this information by creating a file called `elastic.settings` and providing the endpoint, username, and password of the cluster.
-- **Information about the cloud provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are unique to each provider but the template that comes with this project will give you a hint about what is necessary.
+- **Information about Elastic Cloud**: You are going to provide this information by creating a file called `elastic.settings` and provide the API key necessary to create a deployment on Elasticsearch Service.
+- **Information about the provider**: You are going to provide this information by creating a file called `provider.settings` and providing the access details. The specific parameters are unique to each provider but the template that comes with this project will give you a hint about what is necessary.
 - **General customization of the game**: You are going to provide this information by creating a file called `general.settings` and providing the customization.
 
 The information provided here can be reused across different installations.
 Ideally you will create these settings files once and reuse them across different installations, changing only the parameters that require update for a given install.
 
-### 2.1 Information about Elasticsearch
+### 1.1 Information about Elasticsearch
 
 - Create a new file called `elastic.settings` based on the template `elastic.settings.template`.
   ```bash
   cp elastic.settings.template elastic.settings
   ```
-- Open the file `elastic.settings` and provide the endpoint, username, and password of Elasticsearch.
+- Open the file `elastic.settings` and provide the API key.
   ```bash
-  ES_ENDPOINT=${ES_ENDPOINT}
-  ES_USERNAME=${ES_USERNAME}
-  ES_PASSWORD=${ES_PASSWORD}
+  EC_API_KEY=${EC_API_KEY}
   ```
-  You can copy the Elasticsearch endpoint from the Elastic Cloud UI. Just select your deployment as shown below.
+  You can create a new API key on Elasticsearch Service using the UI as shown below.
+  
+  <img src="images/new-api-key.png" heigth="580" width="580" />
 
-  <img src="images/es-endpoint.png" heigth="480" width="480" />
-
-### 2.2 Information about the cloud provider
+### 1.2 Information about the cloud provider
 
 - Create a new file called `provider.settings` based on the template `provider.settings.template`.
   ```bash
   cp provider.settings.template provider.settings
   ```
-- Open the file `provider.settings` and provide the credentials of the chosen cloud provider.
+- Open the file `provider.settings` and configure which provider and region will be used.
+  ```bash
+  SELECTED_PROVIDER=${SELECTED_PROVIDER}
+  SELECTED_REGION=${SELECTED_REGION}
+  ```
+
+- Also in the file `provider.settings` configure the credentials of the provider.
   ```bash
   ########## AWS ##########
 
@@ -151,10 +118,9 @@ Ideally you will create these settings files once and reuse them across differen
 
   ```
 
-  Which credentials to set will depend on what cloud provider was used during the creation of the deployment on Elasticsearch Service.
-  If you are unsure about how to obtain the credentials, check the documentation from the needed cloud provider.
+  If you are unsure about how to obtain the credentials, check the documentation from the chosen provider.
 
-### 2.3 General customization of the game
+### 1.3 General customization of the game
 
 - Create a new file called `general.settings` based on the template `general.settings.template`.
   ```bash
@@ -220,7 +186,7 @@ The table below explains the meaning and usage of each parameter.
   </tr>
 </table>
 
-## 3. Installing and Uninstalling the Game
+## 2. Installing and Uninstalling the Game
 
 - Execute the script `install.sh` to install the game
   ```bash
