@@ -26,18 +26,18 @@ fi
 
 # Validations
 
-if [ -z "${ES_ENDPOINT}" ]; then
-  echo "The variable 'ES_ENDPOINT' has not been set."
+if [ -z "${EC_API_KEY}" ]; then
+  echo "The variable 'EC_API_KEY' has not been set."
   exit 0
 fi
 
-if [ -z "${ES_USERNAME}" ]; then
-  echo "The variable 'ES_USERNAME' has not been set."
+if [ -z "${SELECTED_PROVIDER}" ]; then
+  echo "The variable 'SELECTED_PROVIDER' has not been set."
   exit 0
 fi
 
-if [ -z "${ES_PASSWORD}" ]; then
-  echo "The variable 'ES_PASSWORD' has not been set."
+if [ -z "${SELECTED_REGION}" ]; then
+  echo "The variable 'SELECTED_REGION' has not been set."
   exit 0
 fi
 
@@ -48,10 +48,8 @@ fi
 
 # Initial discovery
 
-readarray -d . -t endpointParts <<< "$ES_ENDPOINT"
-
-provider="${endpointParts[2]}"
-region="${endpointParts[1]}"
+provider="${SELECTED_PROVIDER}"
+region="${SELECTED_REGION}"
 
 if [ "$provider" == "aws" ]; then
 
@@ -85,13 +83,11 @@ if [ ! -d ".terraform" ]; then
   terraform init
 fi
 
-export TF_VAR_es_endpoint=$ES_ENDPOINT
-export TF_VAR_es_username=$ES_USERNAME
-export TF_VAR_es_password=$ES_PASSWORD
+export EC_API_KEY=$EC_API_KEY
+export TF_VAR_ec_region=$region
 
 export TF_VAR_app_name=$APP_NAME
 export TF_VAR_display_count=$DISPLAY_COUNT
-
 export TF_VAR_data_stream_enabled=$DATA_STREAM_ENABLED
 export TF_VAR_transform_enabled=$TRANSFORM_ENABLED
 export TF_VAR_transform_frequency=$TRANSFORM_FREQUENCY

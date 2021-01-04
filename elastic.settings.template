@@ -2,6 +2,4 @@
 ################ Elastic ##################
 ###########################################
 
-ES_ENDPOINT=${ES_ENDPOINT}
-ES_USERNAME=${ES_USERNAME}
-ES_PASSWORD=${ES_PASSWORD}
+EC_API_KEY=${EC_API_KEY}

@@ -2,6 +2,9 @@
 ################ Provider #################
 ###########################################
 
+SELECTED_PROVIDER=${SELECTED_PROVIDER}
+SELECTED_REGION=${SELECTED_REGION}
+
 ########## AWS ##########
 
 AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
