@@ -3,7 +3,6 @@
 ###########################################
 
 provider "azurerm" {
-  version = "=2.20.0"
   features {}
 }
 
@@ -11,15 +10,7 @@ provider "azurerm" {
 ############### Variables #################
 ###########################################
 
-variable "es_endpoint" {
-  type = string
-}
-
-variable "es_username" {
-  type = string
-}
-
-variable "es_password" {
+variable "ec_region" {
   type = string
 }
 
@@ -90,14 +81,15 @@ data "template_file" "scoreboard_index" {
 ###########################################
 
 resource "null_resource" "index" {
+  depends_on = [ec_deployment.elasticsearch]
   provisioner "local-exec" {
     command = "sh index-mgmt.sh"
     interpreter = ["bash", "-c"]
     working_dir = "../../scripts"
     environment = {
-      ES_ENDPOINT = var.es_endpoint
-      ES_USERNAME = var.es_username
-      ES_PASSWORD = var.es_password
+      ES_ENDPOINT = ec_deployment.elasticsearch.elasticsearch[0].https_endpoint
+      ES_USERNAME = ec_deployment.elasticsearch.elasticsearch_username
+      ES_PASSWORD = ec_deployment.elasticsearch.elasticsearch_password
       INPUT_DATA_INDEX = data.template_file.input_data_index.rendered
       SCOREBOARD_INDEX = data.template_file.scoreboard_index.rendered
       DATA_STREAM_ENABLED = var.data_stream_enabled
