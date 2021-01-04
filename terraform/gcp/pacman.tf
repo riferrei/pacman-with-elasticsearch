@@ -3,6 +3,7 @@
 ###########################################
 
 resource "google_storage_bucket" "pacman" {
+  depends_on = [null_resource.index]
   name = data.template_file.app_name.rendered
   provider = google
   location = "US"
@@ -162,9 +163,9 @@ data "template_file" "apikey" {
 
 data "external" "apikey" {
   query = {
-    es_endpoint = var.es_endpoint
-    es_username = var.es_username
-    es_password = var.es_password
+    es_endpoint = ec_deployment.elasticsearch.elasticsearch[0].https_endpoint
+    es_username = ec_deployment.elasticsearch.elasticsearch_username
+    es_password = ec_deployment.elasticsearch.elasticsearch_password
     api_key_body = data.template_file.apikey.rendered
   }
   program = ["sh", "../../scripts/apikey.sh" ]
@@ -173,7 +174,7 @@ data "external" "apikey" {
 data "template_file" "shared_js" {
   template = file("../../content/game/js/shared.js")
   vars = {
-    es_endpoint = var.es_endpoint
+    es_endpoint = ec_deployment.elasticsearch.elasticsearch[0].https_endpoint
     authorization = "ApiKey ${base64encode(join(":", [data.external.apikey.result.apiID, data.external.apikey.result.apiKey]))}"
     input_data_index = data.template_file.input_data_index.rendered
     scoreboard_index = data.template_file.scoreboard_index.rendered
