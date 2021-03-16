@@ -2,6 +2,9 @@
 ################ General ##################
 ###########################################
 
+SELECTED_PROVIDER=${SELECTED_PROVIDER}
+SELECTED_REGION=${SELECTED_REGION}
+
 APP_NAME=app-name
 DISPLAY_COUNT=10
 
