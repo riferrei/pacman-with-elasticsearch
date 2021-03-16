@@ -15,7 +15,7 @@ resource "ec_deployment" "elasticsearch" {
   // automatically pick up the region template
   // based on the cloud provider region.
   region = "azure-${var.ec_region}"
-  version = "7.10.1"
+  version = "7.11.2"
   elasticsearch {
     topology {
       size = "8g"

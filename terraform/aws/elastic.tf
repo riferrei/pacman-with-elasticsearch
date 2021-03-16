@@ -11,7 +11,7 @@ resource "ec_deployment" "elasticsearch" {
   name = data.template_file.app_name.rendered
   deployment_template_id = "aws-io-optimized-v2"
   region = var.ec_region
-  version = "7.10.1"
+  version = "7.11.2"
   elasticsearch {
     topology {
       size = "8g"
