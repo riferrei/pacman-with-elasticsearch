@@ -84,6 +84,22 @@ else
 fi
 
 #################################################################
+########################### Pipeline ############################
+#################################################################
+
+   pipeline_status=$(curl -s -u "$ES_USERNAME:$ES_PASSWORD" \
+      -o /dev/null -w "%{http_code}\n" ${ES_ENDPOINT}/_ingest/pipeline/geoip)
+
+   if [ "$pipeline_status" == 404 ]; then
+
+      pipeline_body=$(<pipeline.json)
+   
+      curl -s -X PUT -u "$ES_USERNAME:$ES_PASSWORD" -H "Content-Type:application/json" \
+         "${ES_ENDPOINT}/_ingest/pipeline/geoip" -d "$pipeline_body"
+
+   fi
+
+#################################################################
 ########################### Transform ###########################
 #################################################################
 

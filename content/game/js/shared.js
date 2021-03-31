@@ -8,7 +8,7 @@ const DISPLAY_COUNT = "${display_count}"
 function writeEvent(eventData) {
 
 	contentType = "application/json";
-	url = ES_ENDPOINT + "/" + INPUT_DATA_INDEX + "/_doc";
+	url = ES_ENDPOINT + "/" + INPUT_DATA_INDEX + "/_doc?pipeline=geoip";
 
 	request = new XMLHttpRequest();
 	request.open("POST", url, true);

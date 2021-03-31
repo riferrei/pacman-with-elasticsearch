@@ -74,7 +74,7 @@ data "template_file" "scoreboard_index" {
 resource "null_resource" "index" {
   depends_on = [ec_deployment.elasticsearch]
   provisioner "local-exec" {
-    command = "sh index-mgmt.sh"
+    command = "sh deploy-mgmt.sh"
     interpreter = ["bash", "-c"]
     working_dir = "../../scripts"
     environment = {

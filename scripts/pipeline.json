@@ -1,0 +1,9 @@
+{
+  "processors": [
+    {
+      "geoip": {
+        "field": "runtime.ip"
+      }
+    }
+  ]
+}

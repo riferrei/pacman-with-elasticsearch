@@ -1,12 +1,7 @@
 var USER = localStorage.getItem("user");
 var BROWSER = localStorage.getItem("browser");
 var OS = localStorage.getItem("os");
-var COUNTRY = "";
-var COUNTRY_CODE = "";
-var STATE = "";
-var CITY = "";
-var LATITUDE = 0.0;
-var LONGITUDE = 0.0;
+var IP = "";
 
 var KEYDOWN = false;
 var PAUSE = false;
@@ -58,18 +53,13 @@ function initGame(newGame) {
 		  if (this.status == 200) {
 			 var result = JSON.parse(this.responseText);
 			 if (result != undefined || result != null) {
-				COUNTRY = result.country;
-				COUNTRY_CODE = result.countryCode;
-				STATE = result.region;
-				CITY = result.city;
-				LATITUDE = result.lat;
-				LONGITUDE = result.lon;
+				IP = result.ip;
 			 }
 		   }
 	   }
 	};
 
-	uri = "https://extreme-ip-lookup.com/json"
+	uri = "https://api.ipify.org?format=json"
 	request.open('GET', uri, true);
 	request.timeout = 5000;
 	request.send();
@@ -475,17 +465,8 @@ function newEventData(losses) {
 		user: USER,
 		runtime: {
 			browser: BROWSER,
-			os: OS
-		},
-		location: {
-			lat: LATITUDE,
-			lon: LONGITUDE
-		},
-		locationDetails: {
-			country: COUNTRY,
-			countryCode: COUNTRY_CODE,
-			state: STATE,
-			city: CITY
+			os: OS,
+			ip: IP
 		},
 		game: {
 			score: SCORE,
