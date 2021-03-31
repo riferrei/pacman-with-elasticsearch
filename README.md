@@ -128,6 +128,9 @@ Ideally you will create these settings files once and reuse them across differen
   ```
 - Open the file `general.settings` and change the variables to customize the game.
   ```bash
+  SELECTED_PROVIDER=gcp
+  SELECTED_REGION=us-east4
+
   APP_NAME=app-name
   DISPLAY_COUNT=10
 
@@ -147,6 +150,18 @@ The table below explains the meaning and usage of each parameter.
     <td align="left"><b>Description</b></td>
     <td align="center"><b>Mandatory</b></td>
     <td align="center"><b>Default Value</b></td>
+  </tr>
+  <tr border="1">
+    <td align="left">SELECTED_PROVIDER</td>
+    <td align="left">The cloud provider used for the game. The value set for this parameter will dictate which provider will be used for both the Elasticsearch cluster and for the game itself.</td>
+    <td align="center">Yes</td>
+    <td align="center">gcp</td>
+  </tr>
+  <tr border="1">
+    <td align="left">SELECTED_REGION</td>
+    <td align="left">The region from the cloud provider where the game will be deployed. The value set for this parameter will dictate which provider will be used for both the Elasticsearch cluster and for the game itself.</td>
+    <td align="center">Yes</td>
+    <td align="center">us-east4</td>
   </tr>
   <tr border="1">
     <td align="left">APP_NAME</td>

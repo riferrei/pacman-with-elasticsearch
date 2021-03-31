@@ -2,8 +2,8 @@
 ################ General ##################
 ###########################################
 
-SELECTED_PROVIDER=${SELECTED_PROVIDER}
-SELECTED_REGION=${SELECTED_REGION}
+SELECTED_PROVIDER=gcp
+SELECTED_REGION=us-east4
 
 APP_NAME=app-name
 DISPLAY_COUNT=10
