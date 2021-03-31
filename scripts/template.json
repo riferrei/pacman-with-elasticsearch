@@ -31,49 +31,6 @@
                         }
                     }
                 },
-                "location": {
-                    "type": "geo_point"
-                },
-                "locationDetails": {
-                    "properties": {
-                        "city": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword",
-                                    "ignore_above": 256
-                                }
-                            }
-                        },
-                        "country": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword",
-                                    "ignore_above": 256
-                                }
-                            }
-                        },
-                        "countryCode": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword",
-                                    "ignore_above": 256
-                                }
-                            }
-                        },
-                        "state": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword",
-                                    "ignore_above": 256
-                                }
-                            }
-                        }
-                    }
-                },
                 "runtime": {
                     "properties": {
                         "browser": {
@@ -93,6 +50,9 @@
                                     "ignore_above": 256
                                 }
                             }
+                        },
+                        "ip": {
+                            "type": "ip"
                         }
                     }
                 },
