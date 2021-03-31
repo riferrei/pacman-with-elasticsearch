@@ -91,13 +91,7 @@ Ideally you will create these settings files once and reuse them across differen
   ```bash
   cp provider.settings.template provider.settings
   ```
-- Open the file `provider.settings` and configure which provider and region will be used.
-  ```bash
-  SELECTED_PROVIDER=${SELECTED_PROVIDER}
-  SELECTED_REGION=${SELECTED_REGION}
-  ```
-
-- Also in the file `provider.settings` configure the credentials of the provider.
+- Open the file `provider.settings` and configure the credentials of the provider.
   ```bash
   ########## AWS ##########
 
