@@ -1,7 +1,7 @@
 var USER = localStorage.getItem("user");
 var BROWSER = localStorage.getItem("browser");
 var OS = localStorage.getItem("os");
-var IP = "";
+var IP = "192.168.0.1";
 
 var KEYDOWN = false;
 var PAUSE = false;
@@ -46,7 +46,9 @@ function blinkHelp() {
 
 function initGame(newGame) {
 
-	// Load details about the user location
+	// Retrieve the public IP address from
+	// the user, to be used by the geoip
+	// pipeline to load further geo details.
 	request = new XMLHttpRequest();
 	request.onreadystatechange = function() {
 	   if (this.readyState == 4) {
