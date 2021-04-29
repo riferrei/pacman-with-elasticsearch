@@ -16,6 +16,7 @@ output "Username" {
 
 output "Password" {
   value = ec_deployment.elasticsearch.elasticsearch_password
+  sensitive = true
 }
 
 /****** Debugging the API Key *******
