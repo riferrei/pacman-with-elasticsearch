@@ -3,11 +3,18 @@
 ###########################################
 
 provider "google" {
-  region = var.google_region
+  region = var.ec_region
 }
 
-variable "google_region" {
-  type = string
+###########################################
+################# modules #################
+###########################################
+
+module "elastic" {
+  source = "../elastic"
+  deployment_name = data.template_file.app_name.rendered
+  deployment_template_id = "gcp-io-optimized"
+  cloud_region = "gcp-${var.ec_region}"
 }
 
 ###########################################
@@ -77,15 +84,15 @@ data "template_file" "scoreboard_index" {
 ###########################################
 
 resource "null_resource" "index" {
-  depends_on = [ec_deployment.elasticsearch]
+  depends_on = [module.elastic]
   provisioner "local-exec" {
     command = "sh deploy-mgmt.sh"
     interpreter = ["bash", "-c"]
     working_dir = "../../scripts"
     environment = {
-      ES_ENDPOINT = ec_deployment.elasticsearch.elasticsearch[0].https_endpoint
-      ES_USERNAME = ec_deployment.elasticsearch.elasticsearch_username
-      ES_PASSWORD = ec_deployment.elasticsearch.elasticsearch_password
+      ES_ENDPOINT = module.elastic.elasticsearch_endpoint
+      ES_USERNAME = module.elastic.elasticsearch_username
+      ES_PASSWORD = module.elastic.elasticsearch_password
       INPUT_DATA_INDEX = data.template_file.input_data_index.rendered
       SCOREBOARD_INDEX = data.template_file.scoreboard_index.rendered
       DATA_STREAM_ENABLED = var.data_stream_enabled
