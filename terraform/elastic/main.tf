@@ -1,8 +1,9 @@
 terraform {
+  required_version = ">= 0.12.29"
   required_providers {
     ec = {
-      source  = "elastic/ec"
-      version = "0.1.0-beta"
+      source = "elastic/ec"
+      version = "0.2.0"
     }
   }
 }
@@ -19,13 +20,22 @@ variable "cloud_region" {
   type = string
 }
 
+data "ec_stack" "latest" {
+  version_regex = "latest"
+  region = var.cloud_region
+}
+
 resource "ec_deployment" "elasticsearch" {
   name = var.deployment_name
   deployment_template_id = var.deployment_template_id
-  region = var.cloud_region
-  version = "7.12.1"
+  region = data.ec_stack.latest.region
+  version = data.ec_stack.latest.version
   elasticsearch {
     topology {
+      autoscaling {
+        max_size = "16g"
+      }
+      id = "hot_content"
       size = "8g"
       zone_count = "2"
     }
