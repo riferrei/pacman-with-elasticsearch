@@ -31,10 +31,8 @@ resource "ec_deployment" "elasticsearch" {
   region = data.ec_stack.latest.region
   version = data.ec_stack.latest.version
   elasticsearch {
+    autoscale = "true"
     topology {
-      autoscaling {
-        max_size = "16g"
-      }
       id = "hot_content"
       size = "8g"
       zone_count = "2"
